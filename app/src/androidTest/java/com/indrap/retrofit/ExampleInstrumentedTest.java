@@ -4,6 +4,7 @@ import android.content.Context;
 
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
+import android.util.Log;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 
@@ -66,8 +67,13 @@ public class ExampleInstrumentedTest {
                         .withBodyFile(jsonBody)));
 
 
+
        onView(withId(R.id.button2)).perform(click());
+       Log.v("Test","*************************************");
+       Log.v("Test",jsonBody);
        onView(withId(R.id.button2)).perform(click());
+       Log.v("Test","*************************************");
+       Log.v("Test",jsonBody);
 
    }
 
