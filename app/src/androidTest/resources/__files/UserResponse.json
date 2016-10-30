@@ -7,13 +7,13 @@
 		},
 		{
 			"id":2,
-			"email":"man@mail.com",
+			"email":"testman@mail.com",
 			"password":"5678%^&*"
 		}
 	,
 		{
 			"id":3,
-			"email":"indraputraa4@gmail.com",
+			"email":"testindraputraa4@gmail.com",
 			"password":"indraputra"
 		}
 	]

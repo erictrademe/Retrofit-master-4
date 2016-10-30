@@ -92,7 +92,8 @@ public class MainActivity extends AppCompatActivity {
 
                         for (Users.UserItem user : response.body().getUsers()) {
 
-                            tv_result_api.append(
+                            //tv_result_api.clearComposingText();
+                            tv_result_api.setText(
 
                                     "Id = " + String.valueOf(user.getId()) +
 
