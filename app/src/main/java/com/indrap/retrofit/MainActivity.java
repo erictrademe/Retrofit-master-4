@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-                tv_respond = (TextView) findViewById(R.id.tv_respond);
+              tv_respond = (TextView) findViewById(R.id.tv_respond);
 
                 tv_result_api = (TextView) findViewById(R.id.tv_result_api);
 
@@ -65,13 +65,18 @@ public class MainActivity extends AppCompatActivity {
 
                         .create();
 
+
                 Retrofit retrofit = new Retrofit.Builder()
 
-                        .baseUrl("http://private-fdf858-users180.apiary-mock.com")
+                        .baseUrl("http://127.0.0.1:8080")
+                        //.baseUrl("http://private-fdf858-users180.apiary-mock.com")
+                        //.baseUrl("https://api.github.com")
 
                         .addConverterFactory(GsonConverterFactory.create(gson))
 
                         .build();
+
+                //Retrofit retrofit = new Retrofit.Builder();
 
                 UserApi user_api = retrofit.create(UserApi.class);
 
@@ -90,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
 
                         //this extract data from retrofit with for() loop
 
-                        for (Users.UserItem user : response.body().getUsers()) {
+                        for (Users.UserItem user : response.body().users) {
 
                             //tv_result_api.clearComposingText();
                             tv_result_api.setText(
@@ -119,6 +124,42 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+
+
+
+
+
+
+      /*          GithubApi github_api = retrofit.create(GithubApi.class);
+
+                // // implement interface for get all user
+
+                Call<Githubuser> call = github_api.getGithubUser();
+
+                call.enqueue(new Callback<Githubuser>() {
+
+                    @Override
+                    public void onResponse(Call<Githubuser> call, Response<Githubuser> response) {
+                        int status = response.code();
+
+
+                        tv_respond.setText(String.valueOf(status));
+
+                        //this extract data from retrofit with for() loop
+
+                            tv_result_api.setText(
+
+                                    "Id = " + response.body().id);
+
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<Githubuser> call, Throwable t) {
+
+                        tv_respond.setText(String.valueOf(t));
+                    }
+                });*/
             }
         });
 

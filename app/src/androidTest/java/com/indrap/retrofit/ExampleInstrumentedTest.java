@@ -64,7 +64,8 @@ public class ExampleInstrumentedTest {
                 .atPriority(1)
                 .willReturn(aResponse()
                         .withStatus(200)
-                        .withBodyFile(jsonBody)));
+                        .withBody(jsonBody)));
+                        //.withBodyFile(jsonBody)));
 
 
 

@@ -12,8 +12,6 @@ public interface UserApi {
     @GET("/users")
     Call<Users> getUsers();
 
-    @GET("/users{id}")
-    Call<User> getUser(@Path("id") String user_id);
 
 
 }

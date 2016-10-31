@@ -13,9 +13,11 @@ public class Users {
     @SerializedName("users")
     public List<UserItem> users;
 
+/*
     public List<UserItem> getUsers() { return users; }
     public void setUsers(List<UserItem> users) { this.users = users; }
     public Users(List<UserItem> users) { this.users = users; }
+*/
 
 
 
