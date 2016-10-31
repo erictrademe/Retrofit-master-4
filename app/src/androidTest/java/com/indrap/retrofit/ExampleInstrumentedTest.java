@@ -29,6 +29,13 @@ import static com.github.tomakehurst.wiremock.client.WireMock.*;
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
+
+//http://handstandsam.com/2016/01/30/running-wiremock-on-android/
+//https://msdn.microsoft.com/en-us/library/az24scfc(v=vs.110).aspx
+//https://api.github.com/users/erictrademe
+//https://github.com/erictrademe/Retrofit-master-4
+
+
 @RunWith(AndroidJUnit4.class)
 public class ExampleInstrumentedTest {
 
