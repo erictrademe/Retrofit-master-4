@@ -9,5 +9,5 @@ import retrofit2.http.GET;
 
 public interface GithubApi {
     @GET("/users/erictrademe")
-    Call<Githubuser> getGithubUser();
+    Call<Githubuser> getGithubUsers();
 }

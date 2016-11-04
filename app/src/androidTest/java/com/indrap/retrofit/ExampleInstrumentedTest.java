@@ -65,10 +65,10 @@ public class ExampleInstrumentedTest {
 
        activity = activityRule.getActivity();
 
-       String jsonBody = asset(activity, "UserResponse.json");
+       String jsonBody = asset(activity, "Githubresponse.json");
 
 
-        stubFor(get(urlMatching(".*/users"))
+        stubFor(get(urlMatching(".*/erictrademe"))
                 .atPriority(1)
                 .willReturn(aResponse()
                         .withStatus(200)

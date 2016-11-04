@@ -20,7 +20,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
-    TextView tv_respond, tv_result_api;
+    TextView tv_respond, tv_result_api, tv_createdate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
 
                 tv_result_api = (TextView) findViewById(R.id.tv_result_api);
 
+                tv_createdate = (TextView) findViewById(R.id.textView2);
+
+
                 Gson gson = new GsonBuilder()
 
                         .setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
@@ -68,17 +71,17 @@ public class MainActivity extends AppCompatActivity {
 
                 Retrofit retrofit = new Retrofit.Builder()
 
-                        .baseUrl("http://127.0.0.1:8080")
+                        //.baseUrl("http://127.0.0.1:8080")
                         //.baseUrl("http://private-fdf858-users180.apiary-mock.com")
-                        //.baseUrl("https://api.github.com")
+                        .baseUrl("https://api.github.com")
 
                         .addConverterFactory(GsonConverterFactory.create(gson))
 
                         .build();
 
                 //Retrofit retrofit = new Retrofit.Builder();
-
-                UserApi user_api = retrofit.create(UserApi.class);
+/*
+              UserApi user_api = retrofit.create(UserApi.class);
 
                 // // implement interface for get all user
 
@@ -98,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                         for (Users.UserItem user : response.body().users) {
 
                             //tv_result_api.clearComposingText();
-                            tv_result_api.setText(
+                            tv_result_api.append(
 
                                     "Id = " + String.valueOf(user.getId()) +
 
@@ -122,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
 
                         tv_respond.setText(String.valueOf(t));
                     }
-                });
+                });*/
 
 
 
@@ -130,11 +133,11 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-      /*          GithubApi github_api = retrofit.create(GithubApi.class);
+           /*   GithubApi github_api = retrofit.create(GithubApi.class);
 
                 // // implement interface for get all user
 
-                Call<Githubuser> call = github_api.getGithubUser();
+                Call<Githubuser> call = github_api.getGithubUsers();
 
                 call.enqueue(new Callback<Githubuser>() {
 
@@ -145,6 +148,8 @@ public class MainActivity extends AppCompatActivity {
 
                         tv_respond.setText(String.valueOf(status));
 
+
+
                         //this extract data from retrofit with for() loop
 
                             tv_result_api.setText(
@@ -152,14 +157,82 @@ public class MainActivity extends AppCompatActivity {
                                     "Id = " + response.body().id);
 
 
+                            tv_createdate.setText(
+
+                                    "createdate =" + response.body().created_at);
+
+
+
+
                     }
+
+
+
+
+
+
 
                     @Override
                     public void onFailure(Call<Githubuser> call, Throwable t) {
 
                         tv_respond.setText(String.valueOf(t));
                     }
-                });*/
+                });
+            }
+        });*/
+
+
+
+
+
+
+                IGithubEvent github_api = retrofit.create(IGithubEvent.class);
+
+                // // implement interface for get all user
+
+                Call<GithubEvent> call = github_api.getGitEvents();
+
+                call.enqueue(new Callback<GithubEvent>() {
+
+                    @Override
+                    public void onResponse(Call<GithubEvent> call, Response<GithubEvent> response) {
+                        int status = response.code();
+
+
+                        tv_respond.setText(response.body().type);
+
+
+
+                        //this extract data from retrofit with for() loop
+
+                        tv_result_api.setText(
+
+                                "Id = " + response.body().id);
+
+
+                        tv_createdate.setText(
+
+                                "createdate =" + response.body().created_at);
+
+
+
+
+                    }
+
+
+
+
+
+
+
+                    @Override
+                    public void onFailure(Call<GithubEvent> call, Throwable t) {
+
+
+
+                        tv_respond.setText(String.valueOf(t));
+                    }
+                });
             }
         });
 

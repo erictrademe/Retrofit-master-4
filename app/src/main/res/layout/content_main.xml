@@ -29,6 +29,21 @@
 
         android:layout_alignParentStart="true"/>
 
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:fontFamily="sans-serif"
+        android:layout_marginLeft="67dp"
+        android:layout_marginStart="67dp"
+        android:layout_below="@+id/tv_respond"
+        android:layout_toRightOf="@+id/tv_respond"
+        android:layout_toEndOf="@+id/tv_respond" />
+
+
+
     <ScrollView
 
         android:layout_width="wrap_content"
@@ -60,4 +75,6 @@
             android:layout_marginTop="27dp"/>
 
     </ScrollView>
+
+
 </RelativeLayout>
